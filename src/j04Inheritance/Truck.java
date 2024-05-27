@@ -1,6 +1,6 @@
 package j04Inheritance;
 
-public class Truck extends Car{
+public class Truck extends Car {
     String color = "흰색";
     public Truck(){
         //상위클래스의 다른 생성자를 호출한다.
@@ -12,6 +12,10 @@ public class Truck extends Car{
         System.out.println("color="+super.color);
         //엑셀
         super.speedUp();
+        //상위클래스의 private 멤버변수는 상속하지 않는다.
+        //System.out.println("wheel->"+wheel);
+        stop();
+        //super.stop();
     }
     //override: 상위클래스의 메소드를 하위클래스에 재정의
     //메소드명과 매개변수(데이터타입)가 같아야 함
@@ -21,6 +25,14 @@ public class Truck extends Car{
         if(speed>120) speed = 120;
         System.out.println("speed====>"+speed);
     }
+    public void stop() {
+        speed = 50;
+        System.out.println("speed->"+speed);
+    }
+    /*//final 메소드는 하위클래스에서 오버라이딩 할 수 없다.
+    public void setColor(String color) {
+        super.color = color + "입니다.";
+    }*/
     //////////////////Nothing Here////////////////////
     public static void main(String[] args) {
         //모든 클래스는 Object 클래스를 상속받고있다. (컴파일러가 추가 해준다.)
@@ -28,5 +40,8 @@ public class Truck extends Car{
         Truck t = new Truck();
         System.out.println("t.color->"+t.color);
         t.speedUp();
+
+        //생성자메소드가 private 접근제한자이면 객체를 생성할 수 없다.
+        Car car = new Car();
     }
 }
