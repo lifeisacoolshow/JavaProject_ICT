@@ -1,5 +1,7 @@
 package j04Inheritance;
 
+import JavaTestProject.SportCar;
+
 public class Truck extends Car {
     String color = "흰색";
     public Truck(){
@@ -45,3 +47,4 @@ public class Truck extends Car {
         Car car = new Car();
     }
 }
+
